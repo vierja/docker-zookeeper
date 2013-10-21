@@ -13,8 +13,5 @@ zookeeper-container:
 start-cluster:
 	./bin/start-cluster.sh
 
-test-cluster:
-	./bin/test-cluster.sh
-
 stop-cluster:
 	./bin/stop-cluster.sh
