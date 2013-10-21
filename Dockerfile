@@ -41,4 +41,4 @@ RUN chmod +x /home/zookeeper/bin/zkServer.sh
 
 EXPOSE 2181 2888 3888
 
-CMD echo "${ZOO_NODE_NUM}" > /var/run/zookeeper/myid && /home/zookeeper/bin/zkServer.sh start-foreground
+CMD echo "${ZOO_NODE_NUM}" > /var/run/zookeeper/myid && cat /var/run/zookeeper/myid && /home/zookeeper/bin/zkServer.sh start-foreground

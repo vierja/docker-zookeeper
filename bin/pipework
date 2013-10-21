@@ -58,7 +58,7 @@ done < /proc/mounts
 N=$(find "$CGROUPMNT" -name "$GUESTNAME*" | wc -l)
 case "$N" in
     0)
-	echo "Could not find any container matching $GUESTNAME."
+	echo "Could not find any container matching $GUESTNAME in $CGROUPMNT"
 	exit 1
 	;;
     1)
