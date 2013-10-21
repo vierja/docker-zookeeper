@@ -14,21 +14,21 @@ if sudo docker ps | grep "vierja/zookeeper" >/dev/null; then
   exit 1
 fi
 
-for index in `seq 3`;
+for index in `seq 5`;
 do
   CONTAINER_ID=$(sudo docker run -d -i \
     -h "zoo${index}" \
     -e "ZOO_NODE_NUM=${index}" \
     -t "vierja/zookeeper")
 
-  sleep 1
+  sleep 3
 
-  sudo ./bin/pipework br1 ${CONTAINER_ID} "10.0.10.${index}0/24"
+  sudo ./bin/pipework br1 ${CONTAINER_ID} "10.0.10.${index}/24"
 
-  echo "Started [zoo${index}] and assigned it the IP [10.0.10.${index}0]"
+  echo "Started [zoo${index}] and assigned it the IP [10.0.10.${index}]"
   if [ "$index" -eq "1" ] ; then
-    sudo ifconfig br1 10.0.10.254
-    sleep 1
+    #sudo ifconfig br1 10.0.10.254
+    sudo ip addr add 10.0.10.254/24 dev br1
   fi
 done
 
