@@ -30,7 +30,7 @@ RUN cat /var/run/zookeeper/myid
 RUN locale-gen en_US en_US.UTF-8
 
 # Downloading zookeeper 3.4.5
-RUN curl http://mirror.sdunix.com/apache/zookeeper/zookeeper-3.4.5/zookeeper-3.4.5.tar.gz -o /home/zookeeper.tar.gz
+RUN curl https://archive.apache.org/dist/zookeeper/zookeeper-3.4.5/zookeeper-3.4.5.tar.gz -o /home/zookeeper.tar.gz
 RUN tar -xzf /home/zookeeper.tar.gz -C /home
 RUN mv /home/zookeeper-3.4.5 /home/zookeeper
 RUN rm /home/zookeeper.tar.gz
